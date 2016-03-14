@@ -1,0 +1,97 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Apartments <small>List</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> Apartments
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group" ng-if="ctrlApartments.canCreate">
+                    <a ui-sref="main.apartment({ id: 'add-new' })"  class="btn btn-success btn-standard">Add New</a>
+                </div>
+                <div class="form-group">
+                    <label >Search</label>
+                    <input type="text" ng-model="ctrlApartments.search" class="form-control" placeholder="Search">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th ng-click="ctrlApartments.sortTable('id')">ID <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('NightsInTimePeriodOccupied')">Nights Occupied <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('NightsInTimePeriodAtLowerVAT')">Lower VAT Nights <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('RentPerMonth')">Rent Per Month <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ChargePerNight2_4Nights')">Charge Per Night 2-4 Nights <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ChargePerNight5_14Nights')">Charge Per Night 5-14 Nights <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ChargePerNight15_28Nights')">Charge Per Night 15-28 Nights <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ChargePerNight29_Nights')">Charge Per Night 29+ Nights <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('Beds')">Beds <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('FLOAddress')">FLO Address <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('SLOAddress')">Active <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('CouncilTaxNumber')">Council Tax <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('SkyViewingCardNo')">Sky Viewing Card No<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('WiFiLogIn')">Wi-Fi Log-In <i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('WiFiPassword')">Wi-Fi Password<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ParkingSpaceNo')">Parking Space No<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('AlarmCode')">Alarm Code<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ActiveDate')">ActiveDate<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('InActiveDate')">InActiveDate<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ContractExpiryDate')">Contact Expiry Date<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ReturnToLandlordDate')">ReturnToLandlordDate<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('ApartmentPhoto')">Apartment Photo<i class="fa fa-fw fa-sort"></i></th>
+                            <th ng-click="ctrlApartments.sortTable('VerticalPosition')">Vertical Position<i class="fa fa-fw fa-sort"></i></th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in ctrlApartments.filteredApartments">
+                            <td>{{item.id}}</td>
+                            <td>{{item.NightsInTimePeriodOccupied}}</td>
+                            <td>{{item.NightsInTimePeriodAtLowerVAT}}</td>
+                            <td>{{item.RentPerMonth}}</td>
+                            <td>{{item.ChargePerNight2_4Nights}}</td>
+                            <td>{{item.ChargePerNight5_14Nights}}</td>
+                            <td>{{item.ChargePerNight15_28Nights}}</td>
+                            <td>{{item.ChargePerNight29_Nights}}</td>
+                            <td>{{item.Beds}}</td>
+                            <td>{{item.FLOAddress}}</td>
+                            <td>{{item.SLOAddress}}</td>
+                            <td>{{item.CouncilTaxNumber}}</td>
+                            <td>{{item.SkyViewingCardNo}}</td>
+                            <td>{{item.WiFiLogIn}}</td>
+                            <td>{{item.WiFiPassword}}</td>
+                            <td>{{item.ParkingSpaceNo}}</td>
+                            <td>{{item.AlarmCode}}</td>
+                            <td>{{item.ActiveDate}}</td>
+                            <td>{{item.InActiveDate}}</td>
+                            <td>{{item.ContractExpiryDate}}</td>
+                            <td>{{item.ReturnToLandlordDate}}</td>
+                            <td>{{item.ApartmentPhoto}}</td>
+                            <td>{{item.VerticalPosition}}</td>
+                            <td><div class="text-center"><a ng-click="ctrlApartments.go(item.id)"  class="btn btn-primary btn-standard">View</a></div></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <uib-pagination
+                        ng-model="ctrlApartments.currentPage"
+                        total-items="ctrlApartments.apartmentsFilteredSearch.length"
+                        items-per-page="ctrlApartments.numPerPage"
+                        max-size = "ctrlApartments.maxSize"
+                        boundary-links="true">
+                </uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    {{ctrlActionsLogs.title}}
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> <a ui-sref="main.actionslog">ActionsLog</a> / Listing
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">         
+                <div class="form-group">
+                    <label >Search</label>
+                    <input type="text" ng-model="ctrlActionsLogs.search" class="form-control" placeholder="Search">
+                </div>
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th ng-click="ctrlActionsLogs.sortTable('id')">ID <i class="fa fa-fw fa-sort"></i></th>
+                                <th ng-click="ctrlActionsLogs.sortTable('user_id')">User ID <i class="fa fa-fw fa-sort"></i></th>
+                                <th ng-click="ctrlActionsLogs.sortTable('table')">Table <i class="fa fa-fw fa-sort"></i></th>
+                                <th ng-click="ctrlActionsLogs.sortTable('description')">Description <i class="fa fa-fw fa-sort"></i></th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in ctrlActionsLogs.filteredLogs">
+                                <td>{{item.id}}</td>
+                                <td>{{item.user_id}}</td>
+                                <td>{{item.table | capitalize}}</td>
+                                <td>{{item.description}}</td>
+                                <td><div class="text-center"><a ng-click="ctrlActionsLogs.go(item.id)"  class="btn btn-primary btn-standard">View</a></div></td>
+                            </tr>                                                      
+                        </tbody>
+                    </table>
+                </div>              
+                <uib-pagination 
+                    ng-model="ctrlActionsLogs.currentPage"
+                    total-items="ctrlActionsLogs.logsFilteredSearch.length"
+                    max-size="ctrlActionsLogs.maxSize" 
+                    boundary-links="true">
+                </uib-pagination>
+              
+            </div>                  
+        </div>
+    </div>
+</div>              

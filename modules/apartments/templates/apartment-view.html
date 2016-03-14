@@ -1,0 +1,357 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    {{ctrlArea.title}}
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> <a ui-sref="main.apartments">Apartments</a> / Apartment
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-9">
+                <form name="apartmentForm">
+                    <div ng-show='!ctrlApartment.isNew' class="form-group">
+                        <label>ID</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="id"
+                               ng-model="ctrlApartment.apartment.id" readonly />
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.FLOAddress.$invalid && apartmentForm.FLOAddress.$touched}">
+                        <label>FLO Address</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="floaddress"
+                               ng-model="ctrlApartment.apartment.FLOAddress" required />
+                        <p ng-show="apartmentForm.apartment.$invalid && apartmentForm.apartment.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.SLOAddress.$invalid && apartmentForm.SLOAddress.$touched}">
+                        <label>Second Line of Address</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="sloaddress"
+                               ng-model="ctrlApartment.apartment.SLOAddress" required />
+                        <p ng-show="apartmentForm.SLOAddress.$invalid && apartmentForm.SLOAddress.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Town.$invalid && apartmentForm.Town.$touched}">
+                        <label>Town</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="town"
+                               ng-model="ctrlApartment.apartment.Town" required />
+                        <p ng-show="apartmentForm.Town.$invalid && apartmentForm.Town.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.City.$invalid && apartmentForm.City.$touched}">
+                        <label>City</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="city"
+                               ng-model="ctrlApartment.apartment.City" required />
+                        <p ng-show="apartmentForm.City.$invalid && apartmentForm.City.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Postcode.$invalid && apartmentForm.Postcode.$touched}">
+                        <label>Postcode</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="postcode"
+                               ng-model="ctrlApartment.apartment.Postcode" required />
+                        <p ng-show="apartmentForm.Postcode.$invalid && apartmentForm.Postcode.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.TelephoneNumber.$invalid && apartmentForm.TelephoneNumber.$touched}">
+                        <label>Telephone Number</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="telephonenumber"
+                               ng-model="ctrlApartment.apartment.TelephoneNumber" required />
+                        <p ng-show="apartmentForm.TelephoneNumber.$invalid && apartmentForm.TelephoneNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.BedConfiguration.$invalid && apartmentForm.BedConfiguration.$touched}">
+                        <label>Bed Configuration</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="bedconfiguration"
+                               ng-model="ctrlApartment.apartment.BedConfiguration" required />
+                        <p ng-show="apartmentForm.BedConfiguration.$invalid && apartmentForm.BedConfiguration.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Developments.$invalid && apartmentForm.Developments.$touched}">
+                        <label>Development</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="developments"
+                               ng-model="ctrlApartment.apartment.Developments" required />
+                        <p ng-show="apartmentForm.Developments.$invalid && apartmentForm.Developments.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.AreaID.$invalid && apartmentForm.AreaID.$touched}">
+                        <label>Area</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="areaID"
+                               ng-model="ctrlApartment.apartment.AreaID" required />
+                        <p ng-show="apartmentForm.AreaID.$invalid && apartmentForm.AreaID.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.ChargePerNight2_4Nights.$invalid && apartmentForm.ChargePerNight2_4Nights.$touched}">
+                        <label>Charge Per Night 2-4 Nights</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="chargePerNight2_4Nights"
+                               ng-model="ctrlApartment.apartment.ChargePerNight2_4Nights" required />
+                        <p ng-show="apartmentForm.ChargePerNight2_4Nights.$invalid && apartmentForm.ChargePerNight2_4Nights.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.AreaID.$invalid && apartmentForm.ChargePerNight5_14Nights.$touched}">
+                        <label>Charge Per Night 5-14 Nights</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="chargePerNight5_14Nights"
+                               ng-model="ctrlApartment.apartment.ChargePerNight5_14Nights" required />
+                        <p ng-show="apartmentForm.AreaID.$invalid && apartmentForm.ChargePerNight5_14Nights.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.ChargePerNight15_28Nights.$invalid && apartmentForm.ChargePerNight15_28Nights.$touched}">
+                        <label>Charge Per Night 15-28 Nights</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="chargePerNight15_28Nights"
+                               ng-model="ctrlApartment.apartment.ChargePerNight15_28Nights" required />
+                        <p ng-show="apartmentForm.ChargePerNight15_28Nights.$invalid && apartmentForm.ChargePerNight15_28Nights.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.ChargePerNight29_Nights.$invalid && apartmentForm.ChargePerNight29_Nights.$touched}">
+                        <label>Charge Per Night 29+ Nights</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="chargePerNight29_Nights"
+                               ng-model="ctrlApartment.apartment.ChargePerNight29_Nights" required />
+                        <p ng-show="apartmentForm.ChargePerNight29_Nights.$invalid && apartmentForm.ChargePerNight29_Nights.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Beds.$invalid && apartmentForm.Beds.$touched}">
+                        <label>Beds</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="beds"
+                               ng-model="ctrlApartment.apartment.Beds" required />
+                        <p ng-show="apartmentForm.Beds.$invalid && apartmentForm.Beds.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Baths.$invalid && apartmentForm.Baths.$touched}">
+                        <label>Baths</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="baths"
+                               ng-model="ctrlApartment.apartment.Baths" required />
+                        <p ng-show="apartmentForm.Baths.$invalid && apartmentForm.Baths.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.BTLandline.$invalid && apartmentForm.BTLandline.$touched}">
+                        <label>BTLandline</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="btLandline"
+                               ng-model="ctrlApartment.apartment.BTLandline" required />
+                        <p ng-show="apartmentForm.BTLandline.$invalid && apartmentForm.BTLandline.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.SkyAccountNumber.$invalid && apartmentForm.SkyAccountNumber.$touched}">
+                        <label>Sky Account No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="skyAccountNumber"
+                               ng-model="ctrlApartment.apartment.SkyAccountNumber" required />
+                        <p ng-show="apartmentForm.SkyAccountNumber.$invalid && apartmentForm.SkyAccountNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.BTAccountNumber.$invalid && apartmentForm.BTAccountNumber.$touched}">
+                        <label>BT Account No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="btAccountNumber"
+                               ng-model="ctrlApartment.apartment.BTAccountNumber" required />
+                        <p ng-show="apartmentForm.BTAccountNumber.$invalid && apartmentForm.BTAccountNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.SkyBTIDWireless.$invalid && apartmentForm.SkyBTIDWireless.$touched}">
+                        <label>Sky/BT ID Wireless</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="skyBTIDWireless"
+                               ng-model="ctrlApartment.apartment.SkyBTIDWireless" required />
+                        <p ng-show="apartmentForm.SkyBTIDWireless.$invalid && apartmentForm.SkyBTIDWireless.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.TVLicenseNumber.$invalid && apartmentForm.TVLicenseNumber.$touched}">
+                        <label>TV License No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="tvLicenseNumber"
+                               ng-model="ctrlApartment.apartment.TVLicenseNumber" required />
+                        <p ng-show="apartmentForm.TVLicenseNumber.$invalid && apartmentForm.TVLicenseNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.GasAccountNumber.$invalid && apartmentForm.GasAccountNumber.$touched}">
+                        <label>Gas Account No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="gasAccountNumber"
+                               ng-model="ctrlApartment.apartment.GasAccountNumber" required />
+                        <p ng-show="apartmentForm.GasAccountNumber.$invalid && apartmentForm.GasAccountNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.ActiveDate.$invalid && apartmentForm.ActiveDate.$touched}">
+                        <label>Activation Date</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="activeDate"
+                               ng-model="ctrlApartment.apartment.ActiveDate" required />
+                        <p ng-show="apartmentForm.ActiveDate.$invalid && apartmentForm.ActiveDate.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.WaterAccountNumber.$invalid && apartmentForm.WaterAccountNumber.$touched}">
+                        <label>Water Account No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="areaID"
+                               ng-model="ctrlApartment.apartment.WaterAccountNumber" required />
+                        <p ng-show="apartmentForm.WaterAccountNumber.$invalid && apartmentForm.WaterAccountNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.ElectricityAccountNumber.$invalid && apartmentForm.ElectricityAccountNumber.$touched}">
+                        <label>Electricity Account No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="electricityAccountNumber"
+                               ng-model="ctrlApartment.apartment.ElectricityAccountNumber" required />
+                        <p ng-show="apartmentForm.ElectricityAccountNumber.$invalid && apartmentForm.ElectricityAccountNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.CouncilTaxNumber.$invalid && apartmentForm.CouncilTaxNumber.$touched}">
+                        <label>Council Tax</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="councilTaxNumber"
+                               ng-model="ctrlApartment.apartment.CouncilTaxNumber" required />
+                        <p ng-show="apartmentForm.CouncilTaxNumber.$invalid && apartmentForm.CouncilTaxNumber.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.SkyViewingCardNo.$invalid && apartmentForm.SkyViewingCardNo.$touched}">
+                        <label>Sky Viewing Card No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="skyViewingCardNo"
+                               ng-model="ctrlApartment.apartment.SkyViewingCardNo" required />
+                        <p ng-show="apartmentForm.SkyViewingCardNo.$invalid && apartmentForm.SkyViewingCardNo.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.WiFiLogIn.$invalid && apartmentForm.WiFiLogIn.$touched}">
+                        <label>Wi-Fi Log-In</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="wifiLogIn"
+                               ng-model="ctrlApartment.apartment.WiFiLogIn" required />
+                        <p ng-show="apartmentForm.WiFiLogIn.$invalid && apartmentForm.WiFiLogIn.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.ParkingSpaceNo.$invalid && apartmentForm.ParkingSpaceNo.$touched}">
+                        <label>Parking Space No.</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="parkingSpaceNo"
+                               ng-model="ctrlApartment.apartment.ParkingSpaceNo" required />
+                        <p ng-show="apartmentForm.ParkingSpaceNo.$invalid && apartmentForm.ParkingSpaceNo.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.AlarmCode.$invalid && apartmentForm.AlarmCode.$touched}">
+                        <label>Alarm Code</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="alarmCode"
+                               ng-model="ctrlApartment.apartment.AlarmCode" required />
+                        <p ng-show="apartmentForm.AlarmCode.$invalid && apartmentForm.AlarmCode.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.ContractExpiryDate.$invalid && apartmentForm.ContractExpiryDate.$touched}">
+                        <label>Contract Expiry Date</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="contractExpiryDate"
+                               ng-model="ctrlApartment.apartment.ContractExpiryDate" required />
+                        <p ng-show="apartmentForm.ContractExpiryDate.$invalid && apartmentForm.ContractExpiryDate.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.InActiveDate.$invalid && apartmentForm.InActiveDate.$touched}">
+                        <label>Inactivate Date</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="inActiveDate"
+                               ng-model="ctrlApartment.apartment.InActiveDate" required />
+                        <p ng-show="apartmentForm.InActiveDate.$invalid && apartmentForm.InActiveDate.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Misc1.$invalid && apartmentForm.Misc1.$touched}">
+                        <label>Misc1</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc1"
+                               ng-model="ctrlApartment.apartment.Misc1" required />
+                        <p ng-show="apartmentForm.Misc1.$invalid && apartmentForm.Misc1.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Misc2.$invalid && apartmentForm.Misc2.$touched}">
+                        <label>Misc2</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc2"
+                               ng-model="ctrlApartment.apartment.Misc2" required />
+                        <p ng-show="apartmentForm.Misc2.$invalid && apartmentForm.Misc2.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Misc3.$invalid && apartmentForm.Misc3.$touched}">
+                        <label>Misc3</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc3"
+                               ng-model="ctrlApartment.apartment.Misc3" required />
+                        <p ng-show="apartmentForm.Misc3.$invalid && apartmentForm.Misc3.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Misc4.$invalid && apartmentForm.Misc4.$touched}">
+                        <label>Misc4</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc4"
+                               ng-model="ctrlApartment.apartment.Misc4" required />
+                        <p ng-show="apartmentForm.Misc4.$invalid && apartmentForm.Misc4.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.AreaID.$invalid && apartmentForm.Misc5.$touched}">
+                        <label>Misc5</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc5"
+                               ng-model="ctrlApartment.apartment.Misc5" required />
+                        <p ng-show="apartmentForm.Misc5.$invalid && apartmentForm.Misc5.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Misc6.$invalid && apartmentForm.Misc6.$touched}">
+                        <label>Misc6</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc6"
+                               ng-model="ctrlApartment.apartment.Misc6" required />
+                        <p ng-show="apartmentForm.Misc6.$invalid && apartmentForm.Misc6.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Misc7.$invalid && apartmentForm.Misc7.$touched}">
+                        <label>Misc7</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc7"
+                               ng-model="ctrlApartment.apartment.Misc7" required />
+                        <p ng-show="apartmentForm.Misc7.$invalid && apartmentForm.Misc7.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': apartmentForm.Misc8.$invalid && apartmentForm.Misc8.$touched}">
+                        <label>Misc8</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="misc8"
+                               ng-model="ctrlApartment.apartment.Misc8" required />
+                        <p ng-show="apartmentForm.Misc8.$invalid && apartmentForm.Misc8.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" ng-disabled="apartmentForm.$invalid" class="btn btn-lg btn-primary" ng-click="ctrlApartment.saveRecord()">Save</button>
+                        <button type="button"  class="btn btn-lg btn-danger pull-right"  ng-click="ctrlApartment.deleteRecord()"
+                                ng-show="ctrlApartment.canDelete && ctrlApartment.isNew==false">Delete</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3">
+                <div class="panel panel-green" ng-show='!ctrlApartment.isNew'>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Associated Developments</h3>
+                    </div>
+                    <div class="panel-body">
+                        Some Developments
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

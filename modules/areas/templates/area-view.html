@@ -1,0 +1,70 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    {{ctrlArea.title}}
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> <a ui-sref="main.areas">Areas</a> / Area
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-9">      
+                <form name="areaForm">
+                    <div ng-show='!ctrlArea.isNew' class="form-group">
+                        <label>ID</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="id" 
+                               ng-model="ctrlArea.area.id" readonly />                      
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': areaForm.area.$invalid && areaForm.area.$touched}">
+                        <label>Area</label>
+                        <input  type="text" class="form-control" name="area" 
+                               ng-model="ctrlArea.area.area" required />
+                        <p ng-show="areaForm.area.$invalid && areaForm.area.$touched" class="help-block">Required</p>                   
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': areaForm.code.$invalid && areaForm.code.$touched}">
+                        <label>Code</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="code" 
+                               ng-model="ctrlArea.area.code" maxlength="7" required />
+                        <p ng-show="areaForm.code.$invalid && areaForm.code.$touched" class="help-block">
+                            Required - max 6 characters
+                        </p>
+                    </div>
+
+
+                    <div class="form-group" ng-class="{'has-error': areaForm.status.$invalid && areaForm.status.$touched}">
+                        <label>Status</label>
+                        <select class="form-control" name="status" ng-model="ctrlArea.area.status" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>                        
+                        </select>
+                        <p ng-show="areaForm.status.$invalid && areaForm.status.$touched" class="help-block">
+                            Required
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" ng-disabled="areaForm.$invalid" class="btn btn-lg btn-primary" ng-click="ctrlArea.saveRecord()">Save</button>
+                        <button type="button"  class="btn btn-lg btn-danger pull-right"  ng-click="ctrlArea.deleteRecord()"
+                                    ng-show="ctrlArea.canDelete && ctrlArea.isNew==false">Delete</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3">      
+                <div class="panel panel-green" ng-show='!ctrlArea.isNew'>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Associated Developments</h3>
+                    </div>
+                    <div class="panel-body">
+                        Some Developments
+                    </div>
+                </div>
+            </div>                    
+        </div>
+    </div>
+</div>

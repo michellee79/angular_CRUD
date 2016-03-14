@@ -1,0 +1,60 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Areas <small>List</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> Areas
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">     
+                <div class="form-group" ng-if="ctrlAreas.canCreate">
+                    <a ui-sref="main.area({ id: 'add-new' })"  class="btn btn-success btn-standard">Add New</a>
+                </div>
+                <div class="form-group">
+                    <label >Search</label>
+                    <input type="text" ng-model="ctrlAreas.search" class="form-control" placeholder="Search">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th ng-click="ctrlAreas.sortTable('id')">ID <i class="fa fa-fw fa-sort"></i></th>
+                                <th ng-click="ctrlAreas.sortTable('area')">Area <i class="fa fa-fw fa-sort"></i></th>
+                                <th ng-click="ctrlAreas.sortTable('code')">Code <i class="fa fa-fw fa-sort"></i></th>
+                                <th ng-click="ctrlAreas.sortTable('status')">Status <i class="fa fa-fw fa-sort"></i></th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in ctrlAreas.filteredAreas">
+                                <td>{{item.id}}</td>
+                                <td>{{item.area}}</td>
+                                <td>{{item.code}}</td>
+                                <td>{{item.status | capitalize}}</td>
+                                <td><div class="text-center"><a ng-click="ctrlAreas.go(item.id)"  class="btn btn-primary btn-standard">View</a></div></td>
+                            </tr>                                                      
+                        </tbody>
+                    </table>
+                </div>
+
+                <uib-pagination
+                        ng-model="ctrlAreas.currentPage"
+                        total-items="ctrlAreas.areasFilteredSearch.length"
+                        items-per-page="ctrlAreas.numPerPage"
+                        max-size = "ctrlAreas.maxSize"
+                        boundary-links="true">
+                </uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

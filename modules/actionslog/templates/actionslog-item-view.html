@@ -1,0 +1,57 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Entry {{ctrlActionsLog.log.id}}
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> <a ui-sref="main.actionslogs">ActionsLog</a> / View entry
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12"> 
+                <form name="logForm">
+                    <div ng-show='!ctrlActionsLog.isNew' class="form-group">
+                        <label>ID</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="id" 
+                               ng-model="ctrlActionsLog.log.id" readonly />                      
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': logForm.log.$invalid && logForm.log.$touched}">
+                        <label>User ID</label>
+                        <input  type="text" class="form-control" name="user_id" 
+                               ng-model="ctrlActionsLog.log.user_id" readonly />
+                        
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': logForm.code.$invalid && logForm.code.$touched}">
+                        <label>Table</label>
+                        <input ng-focus="focus=false" ng-blur="focus=true" type="text" class="form-control" name="code" 
+                               ng-model="ctrlActionsLog.log.table" maxlength="7" readonly />
+                       
+                    </div>
+
+
+                    <div class="form-group" ng-class="{'has-error': logForm.status.$invalid && logForm.status.$touched}">
+                        <label>Description</label>
+                        
+                        <p >
+                           {{ctrlActionsLog.log.description}}
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <a ui-sref="main.actionslogs" class="btn btn-lg btn-primary">Back</a>
+
+                    </div>
+                </form>
+            </div>                  
+        </div>
+    </div>
+</div>
+              
+              
+              
